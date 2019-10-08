@@ -32,6 +32,18 @@ def plot_histogram(img_matrix, plot_title):
     img.show()
 
 
+def image_subtraction(uniform_img, nonuniform_img, threshold):
+    row, col = uniform_img.shape[0:2]
+    binary = np.zeros((col, row))
+    for i in range(row):
+        for j in range(col):
+            vector = abs(uniform_img[i, j] - nonuniform_img[i, j])
+            if vector > threshold:
+                binary[i, j] = 255
+
+    return np.array(binary, dtype=np.uint8)
+
+
 # Problem 1
 # under_exposed = cv2.imread("underexpose.jpg")
 # plot_histogram(under_exposed, "underexposed_plot")
@@ -41,4 +53,3 @@ def plot_histogram(img_matrix, plot_title):
 # Problem 2
 uniform_scene = cv2.imread("uniform_scene.jpg")
 nonuniform_scene = cv2.imread("nonuniform_scene.jpg")
-
