@@ -15,4 +15,18 @@
         alt="Under Exposed Plot"
         style="float: left; margin-right: 10px;" />
     </li>
+    <li>
+        Capture an image with a uniform background, then put an object on the scene and get a second
+        image of the scene. Create a program to process the previous two images; the script has to
+        generate a binary image, where the pixels belonging to the object (foreground) take values of
+        one and pixels from the background takes values of zero respectively. To do this, use the
+        subtraction operator to obtain the difference between the first image and the second image,
+        and then apply a thresholding process to generate the binary image.
+        Test different values for the threshold until obtaining the best results. Quantify the number of
+        pixels that belong to the object of interest. Visualize histograms and the binary image
+        <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/binary_image.png"
+        alt="Under Exposed Plot"
+        style="float: left; margin-right: 10px;" />
+    </li>
+    
 </ul>
