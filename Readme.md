@@ -23,7 +23,8 @@
         subtraction operator to obtain the difference between the first image and the second image,
         and then apply a thresholding process to generate the binary image.
         Test different values for the threshold until obtaining the best results. Quantify the number of
-        pixels that belong to the object of interest. Visualize histograms and the binary image
+        pixels that belong to the object of interest. Visualize histograms and the binary image.
+        <h3>Result: </h3>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/binary_image.png"
         alt="Under Exposed Plot"
         style="float: left; margin-right: 10px;" />
