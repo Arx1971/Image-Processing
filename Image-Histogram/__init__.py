@@ -65,5 +65,3 @@ def generate_binary_image():
 histogram()
 # Problem 2
 generate_binary_image()
-
-# File has some change.
