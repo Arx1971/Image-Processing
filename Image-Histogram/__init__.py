@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import PIL
+from spectral import *
 
 
 def calculate_histogram(source, bands):
@@ -47,7 +48,6 @@ def image_subtraction(uniform_img, nonuniform_img, threshold):
             vector = abs(int(uniform_img[j, i]) - int(nonuniform_img[j, i]))
             if vector > threshold:
                 binary[j, i] = 100
-
     return np.array(binary, dtype=np.uint8)
 
 
@@ -61,7 +61,23 @@ def generate_binary_image():
     img.close()
 
 
+def false_image_processing(source_image):
+    width, height = source_image.shape[0:2]
+    matrix = np.zeros((width, height))
+    for i in range(height):
+        for j in range(width):
+            matrix[j, i] = source_image[j, i]
+
+    return np.array(matrix, dtype=np.uint8)
+
 # Problem 1
-histogram()
+# histogram()
 # Problem 2
-generate_binary_image()
+# generate_binary_image()
+# # Problem 3
+# img = open_image("TIPJUL1.LAN")
+# data = img.load()
+# matrix = false_image_processing(data)
+# img = PIL.Image.fromarray(matrix)
+# img.save('image.png')
+# img.show()
