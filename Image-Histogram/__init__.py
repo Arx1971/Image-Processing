@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 import PIL
 from spectral import *
+from laspy.file import File
 
 
 def calculate_histogram(source, bands):
@@ -62,22 +63,26 @@ def generate_binary_image():
 
 
 def false_image_processing(source_image):
-    width, height = source_image.shape[0:2]
-    matrix = np.zeros((width, height))
-    for i in range(height):
-        for j in range(width):
-            matrix[j, i] = source_image[j, i]
-
+    mysize = source_image.shape
+    print(mysize)
+    matrix = np.zeros((mysize[0], mysize[1], mysize[2]))
+    for i in range(mysize[0]):
+        for j in range(mysize[1]):
+            for l in range(mysize[2]):
+                print(source_image[i, j, l], end=" ")
+            print()
+        print()
     return np.array(matrix, dtype=np.uint8)
 
-# Problem 1
+
+#
 # histogram()
-# Problem 2
 # generate_binary_image()
-# # Problem 3
-# img = open_image("TIPJUL1.LAN")
-# data = img.load()
-# matrix = false_image_processing(data)
-# img = PIL.Image.fromarray(matrix)
-# img.save('image.png')
-# img.show()
+
+img = open_image('TIPJUL1.LAN')
+img = img.load()
+arr = np.array(img)
+print(arr)
+# arr = np.array()
+# print(arr.shape)
+# false_image_processing(arr)
