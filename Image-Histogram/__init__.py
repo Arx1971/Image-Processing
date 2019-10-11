@@ -63,26 +63,24 @@ def generate_binary_image():
 
 
 def false_image_processing(source_image):
-    mysize = source_image.shape
-    print(mysize)
-    matrix = np.zeros((mysize[0], mysize[1], mysize[2]))
-    for i in range(mysize[0]):
-        for j in range(mysize[1]):
-            for l in range(mysize[2]):
-                print(source_image[i, j, l], end=" ")
-            print()
-        print()
+    row, col = source_image.shape[0:2]
+    print(row, col)
+    matrix = np.zeros((row, col, 3))
+    for i in range(row):
+        for j in range(col):
+            matrix[i, j, 2] = source_image[i, j, 4]
+            matrix[i, j, 1] = source_image[i, j, 3]
+            matrix[i, j, 0] = source_image[i, j, 2]
+
     return np.array(matrix, dtype=np.uint8)
 
 
-#
 # histogram()
 # generate_binary_image()
 
 img = open_image('TIPJUL1.LAN')
 img = img.load()
 arr = np.array(img)
-print(arr)
-# arr = np.array()
-# print(arr.shape)
-# false_image_processing(arr)
+matrix = false_image_processing(arr)
+img = PIL.Image.fromarray(matrix, 'RGB')
+img.save('out.png')
