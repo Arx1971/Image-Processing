@@ -64,13 +64,12 @@ def generate_binary_image():
 
 def false_image_processing(source_image):
     row, col = source_image.shape[0:2]
-    print(row, col)
     matrix = np.zeros((row, col, 3))
     for i in range(row):
         for j in range(col):
-            matrix[i, j, 2] = source_image[i, j, 4]
-            matrix[i, j, 1] = source_image[i, j, 3]
-            matrix[i, j, 0] = source_image[i, j, 2]
+            matrix[i, j, 0] = source_image[i, j, 3]
+            matrix[i, j, 1] = source_image[i, j, 2]
+            matrix[i, j, 2] = source_image[i, j, 1]
 
     return np.array(matrix, dtype=np.uint8)
 
