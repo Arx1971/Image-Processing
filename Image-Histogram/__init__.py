@@ -74,12 +74,15 @@ def false_image_processing(source_image):
     return np.array(matrix, dtype=np.uint8)
 
 
-# histogram()
-# generate_binary_image()
+def hyperspectral_image():
+    img = open_image('TIPJUL1.LAN')
+    img = img.load()
+    arr = np.array(img)
+    matrix = false_image_processing(arr)
+    img = PIL.Image.fromarray(matrix, 'RGB')
+    img.save('hyperspectral_image.png')
 
-img = open_image('TIPJUL1.LAN')
-img = img.load()
-arr = np.array(img)
-matrix = false_image_processing(arr)
-img = PIL.Image.fromarray(matrix, 'RGB')
-img.save('out.png')
+
+histogram()
+generate_binary_image()
+hyperspectral_image()
