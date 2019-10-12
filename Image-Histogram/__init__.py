@@ -5,6 +5,8 @@ import PIL
 from spectral import *
 from laspy.file import File
 
+np.seterr(divide='ignore')
+
 
 def calculate_histogram(source, bands):
     width, height = source.shape[0:2]
@@ -65,13 +67,19 @@ def generate_binary_image():
 def false_image_processing(source_image):
     row, col = source_image.shape[0:2]
     matrix = np.zeros((row, col, 3))
-    for i in range(row):
-        for j in range(col):
-            matrix[i, j, 0] = source_image[i, j, 3]
-            matrix[i, j, 1] = source_image[i, j, 2]
-            matrix[i, j, 2] = source_image[i, j, 1]
+
+    matrix[:, :, 0] = source_image[:, :, 3]
+    matrix[:, :, 1] = source_image[:, :, 2]
+    matrix[:, :, 2] = source_image[:, :, 1]
 
     return np.array(matrix, dtype=np.uint8)
+
+
+def ndvi_image_processing(source_image):
+    ndvi_image = ((source_image[:, :, 4] - source_image[:, :, 3]) / (
+            source_image[:, :, 4] + source_image[:, :, 3])).astype(np.float64)
+
+    return np.array(ndvi_image)
 
 
 def hyperspectral_image():
@@ -81,8 +89,11 @@ def hyperspectral_image():
     matrix = false_image_processing(arr)
     img = PIL.Image.fromarray(matrix, 'RGB')
     img.save('hyperspectral_image.png')
+    ndvi_image = ndvi_image_processing(arr)
+    img_2 = PIL.Image.fromarray(ndvi_image, 'RGB')
+    img_2.save('ndvi.png')
 
 
-histogram()
-generate_binary_image()
+# histogram()
+# generate_binary_image()
 hyperspectral_image()
