@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 import PIL
 from spectral import *
+import math
 from laspy.file import File
 
 np.seterr(divide='ignore')
@@ -76,9 +77,10 @@ def false_image_processing(source_image):
 
 
 def ndvi_image_processing(source_image):
+    row, col, band = source_image.shape[0:3]
+    ndvi_image = np.zeros((row, col, band))
     ndvi_image = ((source_image[:, :, 4] - source_image[:, :, 3]) / (
-            source_image[:, :, 4] + source_image[:, :, 3])).astype(np.float64)
-
+            source_image[:, :, 4] + source_image[:, :, 3]))
     return np.array(ndvi_image)
 
 
@@ -87,8 +89,9 @@ def hyperspectral_image():
     img = img.load()
     arr = np.array(img)
     matrix = false_image_processing(arr)
-    img = PIL.Image.fromarray(matrix, 'RGB')
-    img.save('hyperspectral_image.png')
+    img_1 = PIL.Image.fromarray(matrix, 'RGB')
+    img_1.save('hyperspectral_image.png')
+    arr = np.array(img)
     ndvi_image = ndvi_image_processing(arr)
     img_2 = PIL.Image.fromarray(ndvi_image, 'RGB')
     img_2.save('ndvi.png')
