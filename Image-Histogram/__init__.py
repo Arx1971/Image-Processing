@@ -77,10 +77,8 @@ def false_image_processing(source_image):
 
 
 def ndvi_image_processing(source_image):
-    row, col, band = source_image.shape[0:3]
-    ndvi_image = np.zeros((row, col, band))
-    ndvi_image = ((source_image[:, :, 4] - source_image[:, :, 3]) / (
-            source_image[:, :, 4] + source_image[:, :, 3]))
+    ndvi_image = ((source_image[:, :, 3] - source_image[:, :, 2]) / (
+            source_image[:, :, 3] + source_image[:, :, 2]))
     return np.array(ndvi_image)
 
 
