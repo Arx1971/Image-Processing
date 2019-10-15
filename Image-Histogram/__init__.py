@@ -95,6 +95,40 @@ def hyperspectral_image():
     img_2.save('ndvi.png')
 
 
+def raster_of_the_lidar_image():
+    las_file = File("17258975.las")
+    las_min = las_file.header.min
+    las_max = las_file.header.max
+
+    longitude = []
+    latitude = []
+    altitude = []
+
+    for x, y, z, ite, c, nr, rn in np.nditer([las_file.x, las_file.y, las_file.z,
+                                              las_file.Intensity, las_file.Classification,
+                                              las_file.num_returns, las_file.return_num]):
+        longitude.append(x)
+        latitude.append(y)
+        altitude.append(z)
+
+    img_col = int((las_max[0] - las_min[0]) / 8)
+    img_row = int((las_max[1] - las_min[1]) / 8)
+
+    img = np.zeros((img_row, img_col))
+
+    for i in range(len(latitude)):
+        px = int((longitude[i] - las_min[0]) * ((img_col - 1) / (las_max[0] - las_min[0])))
+        py = int((latitude[i] - las_min[1]) * ((img_row - 1) / (las_max[1] - las_min[1])))
+        img[px, py] = altitude[i]
+
+    binary_image = np.array(img, dtype=np.uint8)
+    img = PIL.Image.fromarray(binary_image)
+    img.save('raster_image.png')
+    img.show()
+    img.close()
+
+
 # histogram()
 # generate_binary_image()
 hyperspectral_image()
+# raster_of_the_lidar_image()
