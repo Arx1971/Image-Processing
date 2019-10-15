@@ -80,7 +80,22 @@ def false_image_processing(source_image):
 def ndvi_image_processing(source_image):
     ndvi_image = ((source_image[:, :, 3] - source_image[:, :, 2]) / (
             source_image[:, :, 3] + source_image[:, :, 2]))
-    return np.array(ndvi_image)
+    return np.array(np.uint8(ndvi_image * 255))
+
+
+def color_image_from_ndvi_image(source_image):
+    row, col = source_image.shape[0:2]
+    color_image = np.zeros((row, col, 3))
+    print(source_image)
+    R = 255 * abs(math.cos(source_image * 2 * math.pi / 255))
+    G = 255 * abs(math.cos(source_image * 2 * math.pi / 255))
+    B = 255 * abs(math.cos(source_image * 2 * math.pi / 255))
+
+    color_image[:, :, 2] = R
+    color_image[:, :, 1] = G
+    color_image[:, :, 0] = B
+
+    return np.array(color_image, dtype=np.unit8)
 
 
 def hyperspectral_image():
@@ -92,8 +107,10 @@ def hyperspectral_image():
     # img_1.save('hyperspectral_image.png')
     arr = np.array(img)
     ndvi_image = ndvi_image_processing(arr)
-    img_2 = PIL.Image.fromarray(np.uint8(ndvi_image * 255), 'L')
+    img_2 = PIL.Image.fromarray(ndvi_image, 'L')
     img_2.save('ndvi.png')
+    ndvi_gray_scale_img = np.array(ndvi_image)
+    color_image_from_ndvi_image(ndvi_gray_scale_img)
 
 
 def raster_of_the_lidar_image():
