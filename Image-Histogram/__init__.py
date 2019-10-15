@@ -59,7 +59,6 @@ def generate_binary_image():
     uniform_scene = cv2.imread("uniform_scene.jpg", 0)
     nonuniform_scene = cv2.imread("nonuniform_scene.jpg", 0)
     binary = image_subtraction(uniform_scene, nonuniform_scene, 100)
-    print(binary.shape)
     img = PIL.Image.fromarray(binary)
     img.save('binary_image.png')
     img.show()
@@ -147,5 +146,5 @@ def raster_of_the_lidar_image():
 
 # histogram()
 # generate_binary_image()
-# hyperspectral_image()
-raster_of_the_lidar_image()
+hyperspectral_image()
+# raster_of_the_lidar_image()
