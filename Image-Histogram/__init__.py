@@ -59,6 +59,7 @@ def generate_binary_image():
     uniform_scene = cv2.imread("uniform_scene.jpg", 0)
     nonuniform_scene = cv2.imread("nonuniform_scene.jpg", 0)
     binary = image_subtraction(uniform_scene, nonuniform_scene, 100)
+    print(binary.shape)
     img = PIL.Image.fromarray(binary)
     img.save('binary_image.png')
     img.show()
@@ -85,13 +86,13 @@ def ndvi_image_processing(source_image):
 def hyperspectral_image():
     img = open_image('TIPJUL1.LAN')
     img = img.load()
-    arr = np.array(img)
-    matrix = false_image_processing(arr)
-    img_1 = PIL.Image.fromarray(matrix, 'RGB')
-    img_1.save('hyperspectral_image.png')
+    # arr = np.array(img)
+    # matrix = false_image_processing(arr)
+    # img_1 = PIL.Image.fromarray(matrix, 'RGB')
+    # img_1.save('hyperspectral_image.png')
     arr = np.array(img)
     ndvi_image = ndvi_image_processing(arr)
-    img_2 = PIL.Image.fromarray(ndvi_image, 'RGB')
+    img_2 = PIL.Image.fromarray(np.uint8(ndvi_image * 255), 'L')
     img_2.save('ndvi.png')
 
 
