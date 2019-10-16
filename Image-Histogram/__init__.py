@@ -88,11 +88,10 @@ def color_image_from_ndvi_image(source_image):
     R = 255 * abs(np.cos((source_image * 2 * math.pi) / 255))
     G = 255 * abs(np.cos((source_image * 2 * math.pi) / 255))
     B = 255 * abs(np.cos((source_image * 2 * math.pi) / 255))
-
-    color_image[:, :, 2] = R
-    color_image[:, :, 1] = G
+    print(G)
     color_image[:, :, 0] = B
-
+    color_image[:, :, 1] = G
+    color_image[:, :, 2] = R
     return np.array(np.uint8(color_image))
 
 
@@ -146,7 +145,7 @@ def raster_of_the_lidar_image():
     img.close()
 
 
-# histogram()
-# generate_binary_image()
+histogram()
+generate_binary_image()
 hyperspectral_image()
-# raster_of_the_lidar_image()
+raster_of_the_lidar_image()
