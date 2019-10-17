@@ -5,6 +5,8 @@ import PIL
 from spectral import *
 import math
 from laspy.file import File
+import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 np.seterr(divide='ignore')
 
@@ -85,23 +87,25 @@ def ndvi_image_processing(source_image):
 def color_image_from_ndvi_image(source_image):
     row, col = source_image.shape[0:2]
     color_image = np.zeros((row, col, 3))
+
     R = 255 * abs(np.cos((source_image * 2 * math.pi) / 255))
     G = 255 * abs(np.cos((source_image * 2 * math.pi) / 255))
     B = 255 * abs(np.cos((source_image * 2 * math.pi) / 255))
-    print(G)
-    color_image[:, :, 0] = B
+
+    color_image[:, :, 0] = R
     color_image[:, :, 1] = G
-    color_image[:, :, 2] = R
+    color_image[:, :, 2] = B
+
     return np.array(np.uint8(color_image))
 
 
 def hyperspectral_image():
     img = open_image('TIPJUL1.LAN')
     img = img.load()
-    # arr = np.array(img)
-    # matrix = false_image_processing(arr)
-    # img_1 = PIL.Image.fromarray(matrix, 'RGB')
-    # img_1.save('hyperspectral_image.png')
+    arr = np.array(img)
+    matrix = false_image_processing(arr)
+    img_1 = PIL.Image.fromarray(matrix, 'RGB')
+    img_1.save('hyperspectral_image.png')
     arr = np.array(img)
     ndvi_image = ndvi_image_processing(arr)
     img_2 = PIL.Image.fromarray(ndvi_image, 'L')
@@ -145,7 +149,11 @@ def raster_of_the_lidar_image():
     img.close()
 
 
-histogram()
-generate_binary_image()
-hyperspectral_image()
-raster_of_the_lidar_image()
+# histogram()
+# generate_binary_image()
+# hyperspectral_image()
+# raster_of_the_lidar_image()
+
+# im_gray = cv2.imread("color_ndvi.png", cv2.IMREAD_GRAYSCALE)
+# im_color = cv2.applyColorMap(im_gray, cv2.COLORMAP_JET)
+# plt.imshow
