@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c669aa8c-a434-44a5-9a1f-b68551b7732a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Image-Histogram/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Image-Histogram/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +28,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Language-Classification" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -165,7 +164,8 @@
       <workItem from="1571360975769" duration="1758000" />
       <workItem from="1571373297780" duration="147000" />
       <workItem from="1571377790703" duration="615000" />
-      <workItem from="1571422956142" duration="4933000" />
+      <workItem from="1571422956142" duration="5010000" />
+      <workItem from="1571439659014" duration="13000" />
     </task>
     <servers />
   </component>
