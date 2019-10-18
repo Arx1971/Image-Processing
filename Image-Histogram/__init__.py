@@ -153,7 +153,3 @@ def raster_of_the_lidar_image():
 # generate_binary_image()
 hyperspectral_image()
 # raster_of_the_lidar_image()
-
-# im_gray = cv2.imread("color_ndvi.png", cv2.IMREAD_GRAYSCALE)
-# im_color = cv2.applyColorMap(im_gray, cv2.COLORMAP_JET)
-# plt.imshow
