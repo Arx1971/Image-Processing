@@ -65,6 +65,11 @@ def generate_binary_image():
     img.save('binary_image.png')
     img.show()
     img.close()
+    matrix = cv2.imread('binary_image.png', 0)
+    histr = cv2.calcHist([matrix], [0], None, [256], [0, 256])
+    plt.plot(histr)
+    plt.savefig('binary_image_histogram.png')
+    plt.show()
 
 
 def false_image_processing(source_image):
@@ -149,7 +154,9 @@ def raster_of_the_lidar_image():
     img.close()
 
 
+# Driver
+
 # histogram()
-# generate_binary_image()
-hyperspectral_image()
+generate_binary_image()
+# hyperspectral_image()
 # raster_of_the_lidar_image()
