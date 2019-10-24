@@ -29,24 +29,25 @@
         alt="Under Exposed Plot"
         style="float: left; margin-right: 10px;" />
     </li>
-
+    <li>
         <h2>Hyperspectral image</h2>
         <li>Generate a false color Image, using red, green and blue bands</li>
         <h5>Result: </h5>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/hyperspectral_image.png"
         alt="False Image"
         style="float: left; margin-right: 10px;" />
-    
+    </li>
+    <li>
         <li>Generate NDVI Image from the hyperspectral Image: </li>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/ndvi.png"
         alt="NDVI image"
         style="float: left; margin-right: 10px;" />
-    
-    
+    </li>
+    <li>
         <li>Cos Transformation of Hyperspectral Image.</li>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/color_ndvi.png"
         alt="Color Hyperspectral Image"
         style="float: left; margin-right: 10px;" />
-  
+    </li>
     
 </ul>
