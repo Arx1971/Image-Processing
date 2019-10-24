@@ -32,7 +32,6 @@
     <li>
         <h2>Hyperspectral image</h2>
         <li>Generate a false color Image, using red, green and blue bands</li>
-        <h5>Result: </h5>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/hyperspectral_image.png"
         alt="False Image"
         style="float: left; margin-right: 10px;" />
