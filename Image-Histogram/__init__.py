@@ -156,7 +156,7 @@ def raster_of_the_lidar_image():
 
 # Driver
 
-# histogram()
+histogram()
 generate_binary_image()
-# hyperspectral_image()
-# raster_of_the_lidar_image()
+hyperspectral_image()
+raster_of_the_lidar_image()
