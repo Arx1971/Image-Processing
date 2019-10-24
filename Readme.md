@@ -38,13 +38,13 @@
         style="float: left; margin-right: 10px;" />
     </li>
     <li>
-        Generate NDVI Image from the hyperspectral Image: 
+        <li>Generate NDVI Image from the hyperspectral Image: </li>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/ndvi.png"
         alt="NDVI image"
         style="float: left; margin-right: 10px;" />
     </li>
     <li>
-        Cos Transformation of Hyperspectral Image.
+        <li>Cos Transformation of Hyperspectral Image.</li>
         <img src="https://github.com/Arx1971/Image-Processing/blob/master/Image-Histogram/color_ndvi.png"
         alt="Color Hyperspectral Image"
         style="float: left; margin-right: 10px;" />
