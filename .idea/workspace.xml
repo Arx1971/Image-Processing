@@ -28,7 +28,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NaiveBayesClassifier_NLP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -185,7 +185,9 @@
       <workItem from="1572052119205" duration="231000" />
       <workItem from="1572058984035" duration="9000" />
       <workItem from="1572224736394" duration="16000" />
-      <workItem from="1572309719421" duration="606000" />
+      <workItem from="1572309719421" duration="1320000" />
+      <workItem from="1572483687484" duration="1462000" />
+      <workItem from="1572491074625" duration="1852000" />
     </task>
     <servers />
   </component>
